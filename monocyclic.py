@@ -30,6 +30,8 @@ def gen_all_keys(): #генерация всех моноциклических 
 
 def encrypt(text, key):
     ciphertext = ""
+    while not len(text) % len(key) == 0:
+        text += text[random.randint(0, len(text) - 1)]
     for i in range(0, len(text)):
         ciphertext += str(text[((i // len(key)) * len(key)) + key[i % len(key)]])
     return ciphertext
@@ -42,6 +44,48 @@ def decrypt(text, key):
     for i in range(0, len(text)):
         decrypttext += text[((i // len(key)) * len(key)) + invkey[i % len(key)]]
     return decrypttext
+
+def getdistances(text):
+    checkedblocks = set()
+    dists = []
+    minblock = 3
+    maxblock = 10
+    for bl in range(minblock, min(maxblock + 1, len(text))):
+        for i in range(len(text) - 2 * bl + 1):
+            block = text[i:i + bl]
+            if block not in checkedblocks:
+                checkedblocks.add(block)
+                pos = i
+                while pos != -1:
+                    dist = pos
+                    pos = text.find(block, pos + bl)
+                    if pos != -1:
+                        dist = pos - dist
+                        if dist > 0:
+                            dists.append(dist)
+    return dists
+
+def gcd(a, b):
+    if b == 0:
+        return a
+    else:
+        return gcd(b, a % b)
+
+def getmostfreqgcd(dists):
+    freqs = dict()
+    for i in range(len(dists)):
+        for j in range(i + 1, len(dists)):
+            g = gcd(dists[i], dists[j])
+            if g < 3:
+                continue
+            if g in freqs.keys():
+                freqs[g] += 1
+            else:
+                freqs[g] = 1
+    f = open("freqs", 'w')
+    f.write(str(freqs))
+    f.close()
+    return max(freqs, key=lambda i:freqs[i])
 
 lenkey = int(input("Введите длину ключа: "))
 key = gen_key(lenkey)
@@ -59,7 +103,7 @@ plaintext = plaintext.lower()
 i = 0
 while i < len(plaintext):
     if (not (plaintext[i] >= "a" and plaintext[i] <= "z")) and (not (plaintext[i] >= "а" and plaintext[i] <= "я")) and \
-            (not(plaintext[i] == "ё")):
+            (not(plaintext[i] == "ё") and (not (plaintext[i] >= "0" and plaintext[i] <= "9"))):
         plaintext = plaintext.replace(plaintext[i], "")
     else:
         i += 1
@@ -75,6 +119,8 @@ ciphertext = encrypt(plaintext, key)
 f = open("ciphertext", 'w')
 f.write(ciphertext)
 f.close()
+
+print(getmostfreqgcd(getdistances(ciphertext)))
 
 print("Выберите файл для дешифрования")
 path = open_file()
