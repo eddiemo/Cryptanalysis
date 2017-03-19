@@ -105,7 +105,7 @@ def getmostfreqgcd(dists):
                 freqs[g] += 1
             else:
                 freqs[g] = 1
-    f = open("freqs", 'w')
+    f = open("test kasiski\\freqs", 'w')
     f.write(str(freqs))
     f.close()
     return max(freqs, key=lambda i:freqs[i])
@@ -117,7 +117,7 @@ while True:
     if mode == "1":
         lenkey = int(input("Введите длину ключа: "))
         key = gen_key(lenkey)
-        f = open("filekey", 'w')
+        f = open("test kasiski\\filekey", 'w')
         for i in range(0, lenkey):
             f.write(str(key[i]) + " ")
         f.close()
@@ -145,7 +145,7 @@ while True:
         for i in range(0, len(keytextsplt)):
             key.append(int(keytextsplt[i]))
         ciphertext = encrypt(plaintext, key)
-        f = open("ciphertext", 'w')
+        f = open("test kasiski\\ciphertext", 'w')
         f.write(ciphertext)
         f.close()
         print("Текст из выбранного файла успешно зашифрован")
@@ -155,7 +155,7 @@ while True:
         f = open(path, 'r')
         ciphertext = f.read()
         f.close()
-        f = open("lenkey", 'w')
+        f = open("test kasiski\\lenkey", 'w')
         f.write(str(getmostfreqgcd(getdistances(ciphertext))))
         f.close()
         print("Тест казиски успешно завершен")
@@ -174,7 +174,7 @@ while True:
         for i in range(0, len(keytextsplt)):
             key.append(int(keytextsplt[i]))
         deciphertext = decrypt(plaintext, key)
-        f = open("decrypttext", 'w')
+        f = open("test kasiski\\decrypttext", 'w')
         f.write(deciphertext)
         f.close()
         print("Дешифрование по выбранному ключу выполнено успешно")
@@ -191,7 +191,7 @@ while True:
         f.close()
         startperm = gen_start_perm(lenkey)
         perms = gen_all_keys(lenkey, startperm)
-        f = open("bruteforcedecrypttexts", 'w')
+        f = open("test kasiski\\bruteforcedecrypttexts", 'w')
         for perm in perms:
             newperm = []
             for i in range(len(perm)):
