@@ -21,7 +21,7 @@ def gen_key(n): #генерация одной моноциклической п
         ans[arr[i]] = arr[(i + 1) % n]
     return ans
 
-def is_monocyclic(perm):
+def is_monocyclic(perm): #проверка на моноцикличность
     first = perm[0]
     tmp = first
     i = 0
@@ -68,7 +68,8 @@ def decrypt(text, key):
         decrypttext += text[((i // len(key)) * len(key)) + invkey[i % len(key)]]
     return decrypttext
 
-def getdistances(text):
+#тест казиски
+def getdistances(text): #получение расстояний между одинаковыми блоками
     checkedblocks = set()
     dists = []
     minblock = 3
@@ -88,13 +89,13 @@ def getdistances(text):
                             dists.append(dist)
     return dists
 
-def gcd(a, b):
+def gcd(a, b): #НОД
     if b == 0:
         return a
     else:
         return gcd(b, a % b)
 
-def getmostfreqgcd(dists):
+def getmostfreqgcd(dists): #подсчет количества нодов
     freqs = dict()
     for i in range(len(dists)):
         for j in range(i + 1, len(dists)):
@@ -132,7 +133,7 @@ while True:
         i = 0
         while i < len(plaintext):
             if (not (plaintext[i] >= "a" and plaintext[i] <= "z")) and (not (plaintext[i] >= "а" and plaintext[i] <= "я")) and \
-                    (not(plaintext[i] == "ё") and (not (plaintext[i] >= "0" and plaintext[i] <= "9"))):
+                    (not(plaintext[i] == "ё")):
                 plaintext = plaintext.replace(plaintext[i], "")
             else:
                 i += 1
