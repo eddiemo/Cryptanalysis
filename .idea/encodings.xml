@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/analysis fridman/alph_rus.txt" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/analysis fridman/ciphertext" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/analysis fridman/engfile1.txt" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/analysis fridman/engfile4.txt" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/analysis fridman/file1.txt" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/analysis fridman/file2.txt" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/analysis fridman/file3.txt" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/analysis fridman/file4.txt" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/analysis fridman/key_rus5.txt" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/analysis fridman/key_rus7.txt" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/analysis fridman/randfile1.txt" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/analysis fridman/randfile2.txt" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/analysis fridman/randfile3.txt" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/analysis fridman/randfile4.txt" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/analysis fridman/randfile5.txt" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/analysis fridman/randfile6.txt" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/test kasiski/bruteforcedecrypttexts" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/test kasiski/ciphertext" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/test kasiski/decrypttext" charset="windows-1251" />
